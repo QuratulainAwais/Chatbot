@@ -10,7 +10,6 @@ A clean chat UI with:
 - Purple user bubbles & white bot replies
 - Animated typing indicator
 - Quick suggestion buttons
-- Sidebar with store contact info
 
 ---
 
@@ -23,16 +22,7 @@ A clean chat UI with:
 4. Copy the key (starts with `gsk_...`)
 
 ### 2. Open the Chatbot
-
-#### Option A — Web UI (Recommended)
 Just open `index.html` in your browser. It will prompt you to enter your API key on load. No installation needed.
-
-#### Option B — Terminal Chatbot
-```bash
-pip install groq
-export GROQ_API_KEY="gsk_your_key_here"
-python3 chatbot.py
-```
 
 ---
 
@@ -41,11 +31,8 @@ python3 chatbot.py
 ```
 Gen AI - Chatbot/
 │
-├── index.html        # Web chatbot UI (HTML + CSS + JS)
-├── chatbot.py        # Terminal chatbot (Python)
-├── requirements.txt  # Python dependencies
-├── .gitignore        # Git ignore rules
-└── README.md         # This file
+├── index.html   # Web chatbot UI (HTML + CSS + JS)
+└── README.md    # This file
 ```
 
 ---
@@ -67,40 +54,24 @@ Gen AI - Chatbot/
 | Layer | Technology |
 |---|---|
 | AI Model | Llama 3.1 8B Instant (via Groq) |
-| Web UI | HTML, CSS, JavaScript |
-| Terminal UI | Python |
+| UI | HTML, CSS, JavaScript |
 | API | Groq Chat Completions API |
 
 ---
 
 ## ⚙️ How It Works
 
-1. A **system prompt** loads all FAQ data into the model's context
+1. FAQ data is loaded into the system prompt
 2. User messages are sent to the **Groq API** along with conversation history
 3. The model replies based on the FAQ, maintaining context across turns
 4. If a question isn't in the FAQ, it directs users to `support@techstore.com`
 
 ---
 
-## 📦 Dependencies
-
-```
-groq>=0.9.0
-```
-
-Install with:
-```bash
-pip install -r requirements.txt
-```
-
----
-
 ## 🔑 API Key Security
 
-- **Never commit your API key** to version control
-- `index.html` asks for the key via a prompt on load — it is never saved
-- `chatbot.py` reads from an environment variable: `export GROQ_API_KEY="gsk_..."`
-- Add a `.env` file to `.gitignore` if using one
+- The key is entered via a popup on load — it is never saved or committed
+- **Never hardcode your API key** in the source code
 
 ---
 
