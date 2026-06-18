@@ -25,20 +25,13 @@ A clean chat UI with:
 ### 2. Open the Chatbot
 
 #### Option A — Web UI (Recommended)
-Just open `index.html` in your browser. No installation needed.
+Just open `index.html` in your browser. It will prompt you to enter your API key on load. No installation needed.
 
 #### Option B — Terminal Chatbot
 ```bash
 pip install groq
 export GROQ_API_KEY="gsk_your_key_here"
 python3 chatbot.py
-```
-
-#### Option C — Streamlit UI
-```bash
-pip install streamlit groq
-export GROQ_API_KEY="gsk_your_key_here"
-streamlit run app.py
 ```
 
 ---
@@ -50,8 +43,8 @@ Gen AI - Chatbot/
 │
 ├── index.html        # Web chatbot UI (HTML + CSS + JS)
 ├── chatbot.py        # Terminal chatbot (Python)
-├── app.py            # Streamlit web app (Python)
 ├── requirements.txt  # Python dependencies
+├── .gitignore        # Git ignore rules
 └── README.md         # This file
 ```
 
@@ -76,7 +69,6 @@ Gen AI - Chatbot/
 | AI Model | Llama 3.1 8B Instant (via Groq) |
 | Web UI | HTML, CSS, JavaScript |
 | Terminal UI | Python |
-| Streamlit UI | Python + Streamlit |
 | API | Groq Chat Completions API |
 
 ---
@@ -94,7 +86,6 @@ Gen AI - Chatbot/
 
 ```
 groq>=0.9.0
-streamlit>=1.28.0   # only needed for app.py
 ```
 
 Install with:
@@ -107,7 +98,8 @@ pip install -r requirements.txt
 ## 🔑 API Key Security
 
 - **Never commit your API key** to version control
-- Store it as an environment variable: `export GROQ_API_KEY="gsk_..."`
+- `index.html` asks for the key via a prompt on load — it is never saved
+- `chatbot.py` reads from an environment variable: `export GROQ_API_KEY="gsk_..."`
 - Add a `.env` file to `.gitignore` if using one
 
 ---
